@@ -2,12 +2,16 @@
 
 在全新的 Debian 12 服务器上一键部署 [OpenClaw](https://github.com/openclaw/openclaw)：系统依赖、Swap、Node.js 24、OpenClaw 本体、systemd 服务，外加一个交互式管理工具 `openclaw-manage`——装完之后改模型、换 Key、管白名单，全程不用手编 JSON。
 
-## 一行安装
+## 安装
+
+SSH 登录你的 Debian 12 服务器后，下载并执行（先落盘再跑，保证安装过程可交互）：
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/zhouzijie286-star/openclaw-installer/main/install-openclaw.sh | bash
+curl -fsSL https://miraphos.com/install-openclaw.sh -o install-openclaw.sh
+bash install-openclaw.sh
 ```
 
+> ⚠️ 不要用 `curl ... | bash` 管道方式执行：安装过程需要交互输入（API Key、Bot Token），管道会失去终端。
 > 需要 root 权限与 SSH 交互终端；脚本会在需要时询问配置。
 
 ## 它做什么

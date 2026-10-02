@@ -7,7 +7,7 @@ die()  { printf '\n[错误] %s\n' "$*" >&2; exit 1; }
 trap 'printf "\n执行失败，行号：%s。修复报错后可重新运行脚本。\n" "$LINENO" >&2' ERR
 
 [[ "$(id -u)" == 0 ]] || die "请使用 root 运行"
-[[ -t 0 ]] || die "需要交互终端，请通过 SSH 直接执行"
+[[ -t 0 ]] || die "需要交互终端：请先下载脚本再用 bash 执行（curl -o install-openclaw.sh 后 bash install-openclaw.sh），不要用 curl | bash 管道方式"
 [[ -d /run/systemd/system ]] || die "需要运行 systemd 的系统"
 
 source /etc/os-release
