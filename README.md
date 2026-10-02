@@ -39,7 +39,7 @@ bash install-openclaw.sh
 
 ## 环境要求
 
-- Debian 12（其他版本未测试，欢迎反馈）
+- 支持系统：Debian 11 / 12 / 13、Ubuntu 22.04（其他版本未测试，欢迎反馈）
 - root 权限 + SSH 交互终端
 - 服务器可访问 api.telegram.org（受限网络请先配置代理）
 - 一个模型供应商的 API Key（OpenAI / DeepSeek / OpenRouter / Anthropic 等兼容接口均可）
@@ -54,8 +54,8 @@ bash install-openclaw.sh
 
 ## 常见问题
 
-**Q：支持 Ubuntu / Debian 11 吗？**
-未测试，理论大差不差，风险自担；实测结果欢迎提 issue。
+**Q：支持哪些系统？**
+Debian 11 / 12 / 13、Ubuntu 22.04 为官方支持；其他版本未测试，实测结果欢迎提 issue。
 
 **Q：为什么要求 root？**
 OpenClaw 默认管理 root 用户下的服务与配置，官方部署形态即如此。

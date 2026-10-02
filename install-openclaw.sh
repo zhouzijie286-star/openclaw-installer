@@ -11,8 +11,19 @@ trap 'printf "\n执行失败，行号：%s。修复报错后可重新运行脚�
 [[ -d /run/systemd/system ]] || die "需要运行 systemd 的系统"
 
 source /etc/os-release
-[[ "$ID" == debian && "$VERSION_ID" == 12 ]] ||
-  die "此脚本仅针对 Debian 12"
+case "$ID" in
+  debian)
+    [[ "$VERSION_ID" =~ ^(11|12|13)$ ]] ||
+      die "仅支持 Debian 11/12/13（当前: Debian $VERSION_ID）"
+    ;;
+  ubuntu)
+    [[ "$VERSION_ID" == 22.04 ]] ||
+      die "仅支持 Ubuntu 22.04（当前: Ubuntu $VERSION_ID）"
+    ;;
+  *)
+    die "此脚本支持 Debian 11/12/13 与 Ubuntu 22.04（当前: $ID $VERSION_ID）"
+    ;;
+esac
 
 info "安装系统依赖"
 apt-get update
